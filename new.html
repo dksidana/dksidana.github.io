@@ -3,518 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dheeraj Kumar Sidana - Software Engineering Leader</title>
+    <title>Dheeraj Kumar Sidana | Personal Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scrollbar from animations */
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background-color: #f8fafc; /* slate-50 */
         }
         .section-title {
-            border-left: 4px solid #3b82f6; /* Blue-500 */
-            padding-left: 0.75rem;
+            color: #1e3a8a; /* indigo-900 */
         }
-        .award-bg {
-            background: linear-gradient(to right, #ca8a04, #eab308); /* Yellow-600 to Yellow-500 */
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .card-hover {
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02); /* Enhanced hover */
-            box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.15), 0 5px 8px -3px rgba(0, 0, 0, 0.1);
-        }
-        .modal {
-            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);
-        }
-        .modal-content {
-            background-color: #fefefe; margin: 10% auto; padding: 25px; border: 1px solid #888; width: 90%; max-width: 550px; border-radius: 0.75rem; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .modal-close {
-            color: #aaa; float: right; font-size: 32px; font-weight: bold; line-height: 1;
-        }
-        .modal-close:hover, .modal-close:focus {
-            color: black; text-decoration: none; cursor: pointer;
-        }
-        .blog-card-image, .project-card-image {
-            height: 200px; object-fit: cover;
-        }
-
-        /* Animations */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero text animation */
-        .hero-tagline {
-            animation: fadeInSlideUp 1s ease-out 0.5s forwards;
-            opacity: 0;
-        }
-        @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .hero-title {
-             animation: fadeInScale 0.8s ease-out forwards;
-             opacity: 0;
-        }
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        .nav-link-hover:hover {
-            transform: translateY(-2px);
-            transition: transform 0.2s ease-out;
-        }
-        .button-primary-hover:hover {
-            transform: scale(1.05);
-            transition: transform 0.2s ease-out;
-        }
-
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="text-slate-700">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">Dheeraj K. Sidana</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#home" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">About</a>
-                <a href="#experience" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Experience</a>
-                <a href="#skills" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Skills</a>
-                <a href="#projects" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Projects</a> <!-- Added Projects Link -->
-                <a href="#blog" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Blog</a>
-                <a href="#award" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Award</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 nav-link-hover inline-block">Contact</a>
-            </div>
-            <div class="md:hidden">
-                <button id="nav-toggle" class="text-gray-600 focus:outline-none">
-                    <i class="fas fa-bars fa-lg"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Nav -->
-        <div id="mobile-nav" class="md:hidden hidden bg-white shadow-lg absolute top-full left-0 right-0 z-40">
-            <a href="#home" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Home</a>
-            <a href="#about" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">About</a>
-            <a href="#experience" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Experience</a>
-            <a href="#skills" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Skills</a>
-            <a href="#projects" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Projects</a> <!-- Added Projects Link -->
-            <a href="#blog" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Blog</a>
-            <a href="#award" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Award</a>
-            <a href="#contact" class="block text-gray-600 hover:text-blue-600 hover:bg-gray-100 py-2 px-6">Contact</a>
-        </div>
-    </nav>
+    <!-- JSON Data -->
+    <script>
+        const data = {
+            "Global": {
+                "FullName": "Dheeraj Kumar Sidana",
+                "Email": "dksidana@gmail.com",
+                "cResumeURL": "https://www.dksidana.com/Dheeraj_Kumar_Sidana_Resume.pdf",
+                "LinkedInURL": "http://linkedin.com/in/dksidana",
+                "TwitterURL": "https://twitter.com/dksidana",
+                "FacebookURL": "https://www.facebook.com/dksidana",
+                "GitHubURL": "https://github.com/dksidana",
+                "ProfileImagePlaceholder": "https://placehold.co/150x150/FFFFFF/1E3A8A?text=DK"
+            },
+            "HeroSection": {
+                "Tagline": "Software Engineering Leader | Innovator | Mentor"
+            },
+            "AboutSection": {
+                "AboutMe": "I am a passionate and results-driven Software Engineering Leader with a strong background in building scalable web applications and leveraging data for insightful solutions. With a Master's from IIT Bombay and a Bachelor's from NIT Jaipur, I bring a solid academic foundation combined with extensive hands-on experience in the tech industry. I thrive on leading high-performing teams, fostering innovation, and delivering impactful software products.",
+                "Education": [
+                    { "Degree": "M.Tech. (Computer Science & Engineering)", "Institution": "IIT Bombay" },
+                    { "Degree": "B.Tech. (Information Technology)", "Institution": "NIT Jaipur" }
+                ],
+                "CorePhilosophy": "To architect robust and efficient systems, mentor aspiring engineers, and continuously explore emerging technologies to solve real-world problems. I believe in a collaborative approach and agile methodologies to achieve technical excellence."
+            },
+            "ExperienceSection": {
+                "Experiences": [ ],
+                "cExperiences": [
+                    { "Title": "Senior Engineering Lead", "Company": "Tech Solutions Inc.", "Dates": "2020 - Present", "Description": "Leading multiple agile teams in developing next-generation cloud platforms. Responsible for architectural design, technical roadmap, and mentorship. Driving innovation in serverless technologies and AI integration." },
+                    { "Title": "Lead Software Engineer", "Company": "Innovatech Ltd.", "Dates": "2017 - 2020", "Description": "Spearheaded the development of a flagship data analytics product, improving performance by 40% and user engagement by 25%. Implemented machine learning models for predictive insights." },
+                    { "Title": "Software Engineer", "Company": "StartupX", "Dates": "2015 - 2017", "Description": "Developed core features for a fast-growing SaaS application, focusing on backend services and API integrations. Contributed to a dynamic startup environment, emphasizing rapid prototyping and user feedback." }
+                ]
+            },
+            "SkillsSection": {
+                "Skills": [
+                    { "Name": "Java", "Icon": "fab fa-java" },
+                    { "Name": "Scalable Web Apps", "Icon": "fas fa-server" },
+                    { "Name": "Data Mining & ML", "Icon": "fas fa-database" },
+                    { "Name": "Cloud (AWS/Azure)", "Icon": "fas fa-cloud" },
+                    { "Name": "System Architecture", "Icon": "fas fa-project-diagram" },
+                    { "Name": "Agile & Scrum", "Icon": "fas fa-users-cog" },
+                    { "Name": "Microservices", "Icon": "fas fa-microchip" },
+                    { "Name": "DevOps & CI/CD", "Icon": "fas fa-code-branch" },
+                    { "Name": "Security Practices", "Icon": "fas fa-shield-alt" },
+                    { "Name": "Innovation Strategy", "Icon": "fas fa-lightbulb" }
+                ]
+            },
+            "ProjectsSection": {
+                "Projects": [ ] ,
+                "cProjects": [
+                    { "Name": "Project Alpha: AI-Powered Analytics", "ImagePlaceholder": "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Project+Alpha", "TechStack": "Cloud Native, Python, TensorFlow", "Description": "Developed a predictive analytics platform using machine learning to forecast market trends with 90% accuracy.", "DetailsLink": "#" },
+                    { "Name": "Project Beta: Scalable E-commerce Engine", "ImagePlaceholder": "https://placehold.co/600x400/EC4899/FFFFFF?text=Project+Beta", "TechStack": "Java, Spring Boot, Microservices, Kafka", "Description": "Architected a microservices-based e-commerce backend capable of handling 1M+ concurrent users.", "DetailsLink": "#" },
+                    { "Name": "Project Gamma: IoT Data Platform", "ImagePlaceholder": "https://placehold.co/600x400/10B981/FFFFFF?text=Project+Gamma", "TechStack": "Go, Kubernetes, Prometheus, GCP", "Description": "Built a real-time data ingestion and processing pipeline for IoT devices, enabling actionable insights.", "DetailsLink": "#" }
+                ]
+            },
+            "BlogSection": {
+                "BlogPosts": [] ,
+                "cBlogPosts": [
+                    { "Title": "The Future of Scalable Architectures", "ImagePlaceholder": "https://placehold.co/600x400/3B82F6/FFFFFF?text=Blog+Post+1", "Date": "June 01, 2025", "Excerpt": "Exploring the next wave of technologies and methodologies that will define how we build and scale applications...", "ReadMoreLink": "#" },
+                    { "Title": "Mentorship in Tech: A Leader's Perspective", "ImagePlaceholder": "https://placehold.co/600x400/10B981/FFFFFF?text=Blog+Post+2", "Date": "May 20, 2025", "Excerpt": "Why investing in mentorship is crucial for team growth, innovation, and fostering a positive engineering culture...", "ReadMoreLink": "#" },
+                    { "Title": "Data-Driven Decisions in Software Development", "ImagePlaceholder": "https://placehold.co/600x400/F59E0B/FFFFFF?text=Blog+Post+3", "Date": "April 15, 2025", "Excerpt": "Leveraging analytics and data insights to inform product roadmaps, feature development, and improve user experiences...", "ReadMoreLink": "#" }
+                ],
+                "ViewAllPostsLink": "#"
+            },
+            "AwardSection": {
+                "Awards": [ ] ,
+                "cAwards": [
+                    { 
+                        "Name": "Worth Winner",
+                        "Recognition": "Best Personal Website - 2025",
+                        "Description": "This site has been recognized for its outstanding design, user experience, and professional presentation. A testament to clarity, innovation, and a forward-thinking digital presence."
+                    },
+                    { 
+                        "Name": "Innovation Excellence Award",
+                        "Recognition": "Tech Solutions Inc. - Q4 2024",
+                        "Description": "Awarded for pioneering the integration of AI into the flagship cloud platform, resulting in a 30% increase in operational efficiency."
+                    }
+                ]
+            },
+            "ContactSection": {
+                "ContactIntro": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of something impactful. Feel free to reach out!"
+            },
+            "Footer": {
+                "CopyrightOwner": "Dheeraj Kumar Sidana"
+            }
+        };
+    </script>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero-bg text-white py-24 md:py-36">
-        <div class="container mx-auto px-6 text-center">
-            <img src="https://placehold.co/150x150/FFFFFF/1E3A8A?text=DKS" alt="Dheeraj Kumar Sidana" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full mb-8 border-4 border-white shadow-xl hero-title">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 hero-title" style="animation-delay: 0.2s;">Dheeraj Kumar Sidana</h1>
-            <p class="text-xl md:text-2xl mb-10 hero-tagline">Software Engineering Leader | Innovator | Mentor</p>
-            <div class="space-x-3 md:space-x-4">
-                <a href="#contact" class="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 button-primary-hover inline-block">Contact Me</a>
-                <a href="https://www.dksidana.com/Dheeraj_Kumar_Sidana_Resume.pdf" target="_blank" class="border-2 border-white text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-white hover:text-blue-600 transition duration-300 button-primary-hover inline-block">View Resume</a>
-            </div>
-        </div>
-    </header>
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
 
-    <!-- About Section -->
-    <section id="about" class="py-16 md:py-20 bg-white fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-3 section-title">About Me</h2>
-            <p class="text-gray-700 mb-10 text-lg leading-relaxed max-w-3xl">
-                I am a passionate and results-driven Software Engineering Leader with a strong background in building scalable web applications and leveraging data for insightful solutions. With a Master's from IIT Bombay and a Bachelor's from NIT Jaipur, I bring a solid academic foundation combined with extensive hands-on experience in the tech industry. I thrive on leading high-performing teams, fostering innovation, and delivering impactful software products.
-            </p>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-3 flex items-center"><i class="fas fa-graduation-cap mr-3 text-2xl"></i>Education</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-1">
-                        <li><strong>M.Tech. (Computer Science & Engineering)</strong> - IIT Bombay</li>
-                        <li><strong>B.Tech. (Information Technology)</strong> - NIT Jaipur</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-3 flex items-center"><i class="fas fa-cogs mr-3 text-2xl"></i>Core Philosophy</h3>
-                    <p class="text-gray-700">
-                        To architect robust and efficient systems, mentor aspiring engineers, and continuously explore emerging technologies to solve real-world problems. I believe in a collaborative approach and agile methodologies to achieve technical excellence.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 md:py-20 bg-gray-100 fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-title">Leadership & Experience</h2>
-            <div class="space-y-12">
-                <!-- Experience Item 1 -->
-                <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-lg card-hover">
-                    <div class="md:w-1/4 mb-4 md:mb-0 md:pr-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Senior Engineering Lead</h3>
-                        <p class="text-gray-500">Tech Solutions Inc.</p>
-                        <p class="text-sm text-gray-400">2020 - Present</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <p class="text-gray-700 leading-relaxed">Leading multiple agile teams in developing next-generation cloud platforms. Responsible for architectural design, technical roadmap, and mentorship. Driving innovation in serverless technologies and AI integration.</p>
-                    </div>
-                </div>
-                <!-- Experience Item 2 -->
-                <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-lg card-hover">
-                     <div class="md:w-1/4 mb-4 md:mb-0 md:pr-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Lead Software Engineer</h3>
-                        <p class="text-gray-500">Innovatech Ltd.</p>
-                        <p class="text-sm text-gray-400">2017 - 2020</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <p class="text-gray-700 leading-relaxed">Spearheaded the development of a flagship data analytics product, improving performance by 40% and user engagement by 25%. Implemented machine learning models for predictive insights.</p>
-                    </div>
-                </div>
-                <!-- Experience Item 3 -->
-                <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-lg card-hover">
-                    <div class="md:w-1/4 mb-4 md:mb-0 md:pr-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Software Engineer</h3>
-                        <p class="text-gray-500">StartupX</p>
-                        <p class="text-sm text-gray-400">2015 - 2017</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <p class="text-gray-700 leading-relaxed">Developed core features for a fast-growing SaaS application, focusing on backend services and API integrations. Contributed to a dynamic startup environment, emphasizing rapid prototyping and user feedback.</p>
-                    </div>
-                </div>
-            </div>
-             <div class="text-center mt-12">
-                <a href="http://linkedin.com/in/dksidana" target="_blank" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 button-primary-hover inline-block">
-                    View Full Profile on LinkedIn <i class="fab fa-linkedin ml-2"></i>
+        <!-- Header / Hero Section -->
+        <header id="hero" class="text-center py-16 md:py-24">
+            <img id="profileImage" src="" alt="Profile Picture" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full shadow-lg border-4 border-white mb-6">
+            <h1 id="fullNameHero" class="text-4xl md:text-6xl font-extrabold text-slate-800"></h1>
+            <p id="tagline" class="text-xl md:text-2xl text-indigo-700 font-medium mt-4"></p>
+            <div class="mt-8 flex justify-center gap-4">
+                <!-- a id="resumeButton" href="#" target="_blank" class="bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-900 transition-colors duration-300">
+                    <i class="fas fa-file-alt mr-2"></i> View Resume
+                </a -->
+                <a id="contactButton" href="#contact" class="bg-slate-200 text-indigo-800 font-bold py-3 px-6 rounded-lg shadow-md hover:bg-slate-300 transition-colors duration-300">
+                    <i class="fas fa-envelope mr-2"></i> Get in Touch
                 </a>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 md:py-20 bg-white fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-title">Technical Skills & Expertise</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                <!-- Skill items - Add card-hover class -->
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fab fa-java fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Java</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-server fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Scalable Web Apps</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-database fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Data Mining & ML</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-cloud fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Cloud (AWS/Azure)</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-project-diagram fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">System Architecture</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-users-cog fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Agile & Scrum</p>
-                </div>
-                 <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-microchip fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Microservices</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-code-branch fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">DevOps & CI/CD</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-shield-alt fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Security Practices</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md text-center card-hover">
-                    <i class="fas fa-lightbulb fa-3x text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Innovation Strategy</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 md:py-20 bg-gray-100 fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-title">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
-                    <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Project+Alpha" alt="Project Alpha" class="w-full project-card-image">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Project Alpha: AI-Powered Analytics</h3>
-                        <p class="text-gray-500 text-sm mb-3">Cloud Native, Python, TensorFlow</p>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
-                            Developed a predictive analytics platform using machine learning to forecast market trends with 90% accuracy.
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+        <main>
+            <!-- About Section -->
+            <section id="about" class="py-16 md:py-20 bg-white rounded-xl shadow-md p-8 md:p-12">
+                <h2 class="section-title text-3xl font-bold text-center mb-10">About Me</h2>
+                <div class="grid md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-2">
+                        <p id="aboutMe" class="text-lg leading-relaxed"></p>
+                        <p id="corePhilosophy" class="text-lg leading-relaxed mt-6 italic bg-slate-100 p-4 rounded-lg border-l-4 border-indigo-500"></p>
+                    </div>
+                    <div id="education" class="space-y-4">
+                        <!-- Education items will be injected here -->
                     </div>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
-                    <img src="https://placehold.co/600x400/EC4899/FFFFFF?text=Project+Beta" alt="Project Beta" class="w-full project-card-image">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Project Beta: Scalable E-commerce Engine</h3>
-                         <p class="text-gray-500 text-sm mb-3">Java, Spring Boot, Microservices, Kafka</p>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
-                            Architected a microservices-based e-commerce backend capable of handling 1M+ concurrent users.
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">View Details <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
-                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Project+Gamma" alt="Project Gamma" class="w-full project-card-image">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Project Gamma: IoT Data Platform</h3>
-                        <p class="text-gray-500 text-sm mb-3">Go, Kubernetes, Prometheus, GCP</p>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
-                            Built a real-time data ingestion and processing pipeline for IoT devices, enabling actionable insights.
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">View Details <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="https://github.com/dksidana" target="_blank" class="bg-gray-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-800 transition duration-300 button-primary-hover inline-block">
-                    More on GitHub <i class="fab fa-github ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-16 md:py-20 bg-white fade-in-section"> <!-- Changed to bg-white for alternation -->
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-title">Latest Thoughts & Insights</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post Card 1 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden card-hover"> <!-- Changed to bg-gray-50 -->
-                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Blog+Post+1" alt="Blog Post Image 1" class="w-full blog-card-image">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">The Future of Scalable Architectures</h3>
-                        <p class="text-gray-500 text-sm mb-1">Published: June 01, 2025</p>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
-                            Exploring the next wave of technologies and methodologies that will define how we build and scale applications...
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+            <!-- Experience Section -->
+            <section id="experience" class="py-16 md:py-20">
+                <h2 class="section-title text-3xl font-bold text-center mb-12">Professional Experience</h2>
+                <div id="experienceList" class="relative border-l-2 border-indigo-200 ml-6 md:ml-0">
+                    <!-- Experience items will be injected here -->
                 </div>
-                <!-- Blog Post Card 2 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden card-hover"> <!-- Changed to bg-gray-50 -->
-                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Blog+Post+2" alt="Blog Post Image 2" class="w-full blog-card-image">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Mentorship in Tech: A Leader's Perspective</h3>
-                         <p class="text-gray-500 text-sm mb-1">Published: May 20, 2025</p>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
-                            Why investing in mentorship is crucial for team growth, innovation, and fostering a positive engineering culture...
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                <!-- Blog Post Card 3 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden card-hover"> <!-- Changed to bg-gray-50 -->
-                    <img src="https://placehold.co/600x400/F59E0B/FFFFFF?text=Blog+Post+3" alt="Blog Post Image 3" class="w-full blog-card-image">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Data-Driven Decisions in Software Development</h3>
-                        <p class="text-gray-500 text-sm mb-1">Published: April 15, 2025</p>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
-                            Leveraging analytics and data insights to inform product roadmaps, feature development, and improve user experiences...
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">Read More <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="#" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 button-primary-hover inline-block">
-                    View All Posts
-                </a>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Award Section -->
-    <section id="award" class="py-16 md:py-20 award-bg text-white fade-in-section">
-        <div class="container mx-auto px-6 text-center">
-            <i class="fas fa-trophy fa-5x mb-6 text-yellow-300" style="animation: pulse 2s infinite;"></i>
-             @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Worth Winner</h2>
-            <p class="text-xl md:text-2xl mb-8 font-semibold">Best Personal Website - 2025</p>
-            <p class="text-lg max-w-2xl mx-auto leading-relaxed">
-                This site has been recognized for its outstanding design, user experience, and professional presentation.
-                A testament to clarity, innovation, and a forward-thinking digital presence.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-20 bg-gray-100 fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-title">Get In Touch</h2>
-            <div class="max-w-lg mx-auto bg-white p-8 md:p-10 rounded-lg shadow-xl card-hover">
-                <p class="text-gray-700 text-lg mb-8 text-center leading-relaxed">
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of something impactful. Feel free to reach out!
-                </p>
-                <div class="text-center mb-8">
-                     <a href="mailto:dheeraj.sidana@example.com" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 inline-flex items-center button-primary-hover text-lg">
-                        <i class="fas fa-envelope mr-2"></i> Email Me
-                    </a>
+            <!-- Skills Section -->
+            <section id="skills" class="py-16 md:py-20 bg-white rounded-xl shadow-md p-8 md:p-12">
+                <h2 class="section-title text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
+                <div id="skillsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+                    <!-- Skills will be injected here -->
                 </div>
-                <div class="flex justify-center space-x-6 md:space-x-8">
-                    <a href="http://linkedin.com/in/dksidana" target="_blank" class="text-blue-700 hover:text-blue-900 transition duration-300 transform hover:scale-110">
-                        <i class="fab fa-linkedin fa-2x md:fa-3x"></i>
-                    </a>
-                    <a href="https://twitter.com/dksidana" target="_blank" class="text-blue-400 hover:text-blue-600 transition duration-300 transform hover:scale-110">
-                        <i class="fab fa-twitter fa-2x md:fa-3x"></i>
-                    </a>
-                     <a href="https://www.facebook.com/dksidana" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 transform hover:scale-110">
-                        <i class="fab fa-facebook fa-2x md:fa-3x"></i>
-                    </a>
-                    <a href="https://github.com/dksidana" target="_blank" class="text-gray-800 hover:text-black transition duration-300 transform hover:scale-110">
-                        <i class="fab fa-github fa-2x md:fa-3x"></i>
-                    </a>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-16 md:py-20">
+                <h2 class="section-title text-3xl font-bold text-center mb-12">Featured Projects</h2>
+                <div id="projectGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projects will be injected here -->
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+            
+            <!-- Blog Section -->
+            <section id="blog" class="py-16 md:py-20 bg-indigo-50/50 rounded-xl">
+                 <h2 class="section-title text-3xl font-bold text-center mb-12">Recent Writings</h2>
+                 <div id="blogGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
+                     <!-- Blog posts will be injected here -->
+                 </div>
+                 <div class="text-center mt-12">
+                     <a id="viewAllPosts" href="#" class="text-indigo-800 font-bold hover:underline">
+                         View All Posts <i class="fas fa-arrow-right ml-1"></i>
+                     </a>
+                 </div>
+            </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-10 text-center">
-        <div class="container mx-auto px-6">
-            <p>&copy; <span id="currentYear"></span> Dheeraj Kumar Sidana. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Designed with <i class="fas fa-heart text-red-500"></i> and a touch of innovation.</p>
-        </div>
-    </footer>
+            <!-- Award Section -->
+            <section id="award" class="py-16 md:py-20 bg-white rounded-xl shadow-md p-8 md:p-12">
+                <h2 class="section-title text-3xl font-bold text-center mb-12">Awards & Recognitions</h2>
+                <div id="awardList" class="space-y-10">
+                    <!-- Awards will be dynamically injected here -->
+                </div>
+            </section>
 
-    <!-- Modal for messages -->
-    <div id="messageModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <p id="modalMessageText" class="text-lg"></p>
-        </div>
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 md:py-20 bg-slate-50 rounded-xl p-8 md:p-12 text-center">
+                <h2 class="section-title text-3xl font-bold mb-6">Let's Connect</h2>
+                <p id="contactIntro" class="max-w-2xl mx-auto text-lg mb-8"></p>
+                <div class="flex justify-center items-center gap-6 text-3xl md:text-4xl">
+                    <a id="emailLink" href="#" class="text-slate-500 hover:text-indigo-700 transition-colors"><i class="fas fa-envelope"></i></a>
+                    <a id="linkedinLink" href="#" target="_blank" class="text-slate-500 hover:text-indigo-700 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a id="githubLink" href="#" target="_blank" class="text-slate-500 hover:text-indigo-700 transition-colors"><i class="fab fa-github"></i></a>
+                    <a id="twitterLink" href="#" target="_blank" class="text-slate-500 hover:text-indigo-700 transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a id="facebookLink" href="#" target="_blank" class="text-slate-500 hover:text-indigo-700 transition-colors"><i class="fab fa-facebook"></i></a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 mt-12 border-t">
+            <p id="copyright" class="text-slate-500"></p>
+        </footer>
+
     </div>
 
-
     <script>
-        // Mobile navigation toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        navToggle.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent click from bubbling to document
-            mobileNav.classList.toggle('hidden');
-        });
+        // This script populates the website with the data from the JSON object.
+        document.addEventListener('DOMContentLoaded', function() {
+            const g = data.Global;
+            const h = data.HeroSection;
+            const a = data.AboutSection;
+            const exp = data.ExperienceSection;
+            const s = data.SkillsSection;
+            const p = data.ProjectsSection;
+            const b = data.BlogSection;
+            const aw = data.AwardSection;
+            const c = data.ContactSection;
+            const f = data.Footer;
 
-        // Close mobile nav on link click or click outside
-        document.addEventListener('click', (event) => {
-            if (!mobileNav.classList.contains('hidden') && !mobileNav.contains(event.target) && !navToggle.contains(event.target)) {
-                mobileNav.classList.add('hidden');
+            // --- Global & Hero ---
+            document.title = `${g.FullName} | Personal Website`;
+            document.getElementById('profileImage').src = g.ProfileImagePlaceholder;
+            document.getElementById('profileImage').alt = g.FullName;
+            document.getElementById('fullNameHero').textContent = g.FullName;
+            document.getElementById('tagline').textContent = h.Tagline;
+            if (g.ResumeURL)
+            {
+                document.getElementById('resumeButton').href = g.ResumeURL;
             }
+            // --- About Section ---
+            document.getElementById('aboutMe').textContent = a.AboutMe;
+            document.getElementById('corePhilosophy').textContent = a.CorePhilosophy;
+            const educationContainer = document.getElementById('education');
+            if (a.Education && a.Education.length > 0) {
+                educationContainer.innerHTML = `<h3 class="text-2xl font-bold text-indigo-800 mb-4">Education</h3>`;
+                a.Education.forEach(edu => {
+                    educationContainer.innerHTML += `
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <p class="font-bold text-indigo-900">${edu.Degree}</p>
+                            <p class="text-slate-600">${edu.Institution}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            // --- Experience Section ---
+            const experience = document.getElementById('experience');
+            const experienceList = document.getElementById('experienceList');
+            if (exp.Experiences && exp.Experiences.length > 0) {
+                experienceList.innerHTML = '';
+                exp.Experiences.forEach(job => {
+                    experienceList.innerHTML += `
+                        <div class="mb-10 ml-10 card p-6">
+                            <div class="absolute w-6 h-6 bg-indigo-700 rounded-full -left-3 border-4 border-white"></div>
+                            <p class="text-sm font-semibold text-indigo-600">${job.Dates}</p>
+                            <h3 class="text-xl font-bold text-slate-800 mt-1">${job.Title}</h3>
+                            <p class="text-lg font-medium text-slate-600">${job.Company}</p>
+                            <p class="mt-2 text-slate-600 leading-relaxed">${job.Description}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                experience.style.display = 'none';
+            }
+
+
+            // --- Skills Section ---
+            const skillsGrid = document.getElementById('skillsGrid');
+            if (s.Skills && s.Skills.length > 0) {
+                skillsGrid.innerHTML = '';
+                s.Skills.forEach(skill => {
+                    skillsGrid.innerHTML += `
+                        <div class="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg hover:bg-indigo-100 transition-colors">
+                            <i class="${skill.Icon} text-3xl text-indigo-700 mb-2"></i>
+                            <span class="font-semibold text-slate-700">${skill.Name}</span>
+                        </div>
+                    `;
+                });
+            }
+
+            // --- Projects Section ---
+            const projectSection = document.getElementById('projects');
+            if (p.Projects && p.Projects.length > 0) {
+                const projectGrid = document.getElementById('projectGrid');
+                projectGrid.innerHTML = '';
+                p.Projects.forEach(project => {
+                    projectGrid.innerHTML += `
+                        <div class="card overflow-hidden">
+                            <img src="${project.ImagePlaceholder}" alt="${project.Name}" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-slate-800">${project.Name}</h3>
+                                <p class="text-indigo-600 font-semibold my-2">${project.TechStack}</p>
+                                <p class="text-slate-600 mb-4">${project.Description}</p>
+                                <a href="${project.DetailsLink}" class="font-bold text-indigo-800 hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                projectSection.style.display = 'none';
+            }
+
+            // --- Blog Section ---
+            const blogSection = document.getElementById('blog');
+            if (b.BlogPosts && b.BlogPosts.length > 0) {
+                const blogGrid = document.getElementById('blogGrid');
+                blogGrid.innerHTML = '';
+                b.BlogPosts.forEach(post => {
+                     blogGrid.innerHTML += `
+                         <div class="card overflow-hidden">
+                             <img src="${post.ImagePlaceholder}" alt="${post.Title}" class="w-full h-48 object-cover">
+                             <div class="p-6">
+                                 <p class="text-sm text-slate-500 mb-2">${post.Date}</p>
+                                 <h3 class="text-xl font-bold text-slate-800">${post.Title}</h3>
+                                 <p class="text-slate-600 my-3">${post.Excerpt}</p>
+                                 <a href="${post.ReadMoreLink}" class="font-bold text-indigo-800 hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                             </div>
+                         </div>
+                     `;
+                });
+                document.getElementById('viewAllPosts').href = b.ViewAllPostsLink;
+            } else {
+                blogSection.style.display = 'none';
+            }
+
+            // --- Award Section ---
+            const awardSection = document.getElementById('award');
+            if (aw.Awards && aw.Awards.length > 0) {
+                const awardList = document.getElementById('awardList');
+                awardList.innerHTML = '';
+                aw.Awards.forEach(award => {
+                    awardList.innerHTML += `
+                        <div class="text-center max-w-3xl mx-auto">
+                            <i class="fas fa-award text-4xl text-amber-500 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-slate-800">${award.Name}</h3>
+                            <p class="text-lg text-indigo-700 font-semibold mt-1">${award.Recognition}</p>
+                            <p class="mt-3 text-base leading-relaxed text-slate-600">${award.Description}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                awardSection.style.display = 'none';
+            }
+
+
+            // --- Contact & Footer ---
+            document.getElementById('contactIntro').textContent = c.ContactIntro;
+            document.getElementById('emailLink').href = `mailto:${g.Email}`;
+            document.getElementById('linkedinLink').href = g.LinkedInURL;
+            document.getElementById('githubLink').href = g.GitHubURL;
+            document.getElementById('twitterLink').href = g.TwitterURL;
+            document.getElementById('facebookLink').href = g.FacebookURL;
+            
+            const currentYear = new Date().getFullYear();
+            document.getElementById('copyright').textContent = `© ${currentYear} ${f.CopyrightOwner}. All Rights Reserved.`;
         });
-        
-        document.querySelectorAll('#mobile-nav a, nav a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (event) => {
-                if (mobileNav.contains(event.target) && !mobileNav.classList.contains('hidden')) {
-                    mobileNav.classList.add('hidden');
-                }
-                
-                const targetId = link.getAttribute('href');
-                if (targetId && targetId.startsWith('#') && targetId.length > 1) {
-                    event.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                         targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                } else if (targetId === '#') {
-                    event.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            });
-        });
-        
-        document.querySelectorAll('a[href^="#"]:not(nav a):not(#mobile-nav a)').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.length > 1) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                         targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                } else if (targetId === '#') { 
-                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Modal functions
-        function showModal(message) {
-            document.getElementById('modalMessageText').textContent = message;
-            document.getElementById('messageModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('messageModal').style.display = 'none';
-        }
-
-        // Scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        };
-
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Optional: unobserve after animation
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            observer.observe(section);
-        });
-
     </script>
 
 </body>
 </html>
+
